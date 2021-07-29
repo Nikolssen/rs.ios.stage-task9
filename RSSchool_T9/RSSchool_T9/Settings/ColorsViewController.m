@@ -7,7 +7,7 @@
 // 
 // Copyright © 2021 RSSchool. All rights reserved.
 
-#import "SettingsViewController.h"
+#import "ColorsViewController.h"
 
 @interface ColorsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)UITableView* tableView;
@@ -16,7 +16,7 @@
 @property (nonatomic, assign) NSInteger selectedColor;
 @end
 
-@implementation SettingsViewController
+@implementation ColorsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
