@@ -58,14 +58,11 @@
     cell.textLabel.text = self.texts[indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:17.0];
     if (indexPath.row == self.selectedColor) {
-        UIImageView* imageView = [UIImageView new];
-        imageView.image = [UIImage imageNamed:@"checkmark"];
-        imageView.tintColor = UIColor.redColor;
-        cell.accessoryView = imageView;
-        cell.accessoryView.frame = CGRectMake(0, 0, cell.bounds.size.height * 0.36, cell.bounds.size.height * 0.64);
+        cell.tintColor = UIColor.redColor;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
-        cell.accessoryView = nil;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return  cell;
@@ -81,5 +78,8 @@
     [tableView reloadData];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
 
 @end
