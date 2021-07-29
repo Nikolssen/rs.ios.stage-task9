@@ -45,7 +45,7 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
     tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:90.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:35], [tableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor], [tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-10]]];
+    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:30.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:35], [tableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor], [tableView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-15]]];
     [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"ColorCell"];
     
     tableView.layer.cornerRadius = 16.0;

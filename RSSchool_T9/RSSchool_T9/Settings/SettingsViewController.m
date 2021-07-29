@@ -30,7 +30,7 @@
     [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"SettingsCell"];
     [self.view addSubview:tableView];
     tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:120.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:35], [tableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor], [tableView.heightAnchor constraintEqualToConstant:100]]];
+    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:30.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:35], [tableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor], [tableView.heightAnchor constraintEqualToConstant:100]]];
     self.color = UIColor.redColor;
     self.colorDescription = @"#555";
 }
