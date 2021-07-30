@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:244.0/255.0 alpha:1.0];
     
-    self.texts = @[@"#be2813", @"#3802da", @"#467c24", @"#808080", @"#8e5af7", @"#f07f5a", @"#f3af22", @"#3dacf7", @"#e87aa4", @"0f2e3f", @"#213711", @"#511307", @"#92003b"];
+    self.texts = @[@"#be2813", @"#3802da", @"#467c24", @"#808080", @"#8e5af7", @"#f07f5a", @"#f3af22", @"#3dacf7", @"#e87aa4", @"#0f2e3f", @"#213711", @"#511307", @"#92003b"];
     self.colors = @[
         [UIColor colorWithRed:190.0/255.0 green:40.0/255.0 blue:19.0/255.0 alpha:1.0],
         [UIColor colorWithRed:56.0/255.0 green:2.0/255.0 blue:218.0/255.0 alpha:1.0],
@@ -39,15 +39,14 @@
         [UIColor colorWithRed:146.0/255.0 green:0.0 blue:59.0/255.0 alpha:1.0],
     ];
     
-    UITableView* tableView = [UITableView new];
+    UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
     self.tableView = tableView;
     tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:30.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:35], [tableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor], [tableView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-15]]];
+    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor], [tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:0], [tableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor], [tableView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor]]];
     [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"ColorCell"];
-    
     tableView.layer.cornerRadius = 16.0;
 }
 

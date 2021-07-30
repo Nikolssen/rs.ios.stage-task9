@@ -25,6 +25,7 @@
 		2BB9F31026AF5FB300F43852 /* s4-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9F30F26AF5FB300F43852 /* s4-text.txt */; };
 		2BB9F31226AF5FBE00F43852 /* s4-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9F31126AF5FBE00F43852 /* s4-title.txt */; };
 		3F8916E726B2A07D00DFA807 /* ColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8916E626B2A07D00DFA807 /* ColorsViewController.m */; };
+		3FB7F36626B42D5F004CE1C6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */; };
 		841359EE26B305E500A129FA /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359ED26B305E500A129FA /* ItemsViewController.swift */; };
 		841359F126B3164800A129FA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359F026B3164800A129FA /* TabBarController.swift */; };
 		841359F526B31BD700A129FA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841359F426B31BD700A129FA /* SettingsViewController.m */; };
@@ -53,6 +54,7 @@
 		3F8916E426B2A07C00DFA807 /* RSSchool_T9-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSchool_T9-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F8916E526B2A07D00DFA807 /* ColorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ColorsViewController.h; path = RSSchool_T9/Settings/ColorsViewController.h; sourceTree = SOURCE_ROOT; };
 		3F8916E626B2A07D00DFA807 /* ColorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ColorsViewController.m; path = RSSchool_T9/Settings/ColorsViewController.m; sourceTree = SOURCE_ROOT; };
+		3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		841359ED26B305E500A129FA /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		841359F026B3164800A129FA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		841359F326B31BD700A129FA /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				841359ED26B305E500A129FA /* ItemsViewController.swift */,
+				3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				2BB9F30126AF557E00F43852 /* story-2-path.swift in Sources */,
 				2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */,
+				3FB7F36626B42D5F004CE1C6 /* CollectionViewCell.swift in Sources */,
 				2BB9F30B26AF5EEC00F43852 /* story-3-path.swift in Sources */,
 				841359F126B3164800A129FA /* TabBarController.swift in Sources */,
 				3F8916E726B2A07D00DFA807 /* ColorsViewController.m in Sources */,
