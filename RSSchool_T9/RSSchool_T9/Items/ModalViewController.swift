@@ -23,27 +23,43 @@ class ModalViewController: UIViewController {
     }()
     
     private let contentView = UIView()
-    
-    
-    let contentType: ContentType!
+    private var collectionView: UICollectionView?
+    let gallery: Gallery!
+    let story: Story!
+
     let titleView = TitleView()
     let crossButton = CrossButton(frame: .zero)
+    let color: UIColor
+    let shouldAnimate: Bool
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         commonInit()
         
-
+        
         
         setupGallery()
         setupStory()
-
+        
         
     }
+    override func viewDidLayoutSubviews() {
+        print(contentView.frame)
+        scrollView.contentSize = contentView.frame.size
+    }
     
-    init(type: ContentType){
-        self.contentType = type
+    init(type: ContentType, color: UIColor, shouldAnimate: Bool){
+        switch type {
+        case let .gallery(gallery):
+            self.gallery = gallery
+            self.story = nil
+        case let .story(story):
+            self.story = story
+            self.gallery = nil
+        }
+        self.color = color
+        self.shouldAnimate = shouldAnimate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,27 +70,44 @@ class ModalViewController: UIViewController {
         line.translatesAutoresizingMaskIntoConstraints = false
         crossButton.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isScrollEnabled = true
-        scrollView.addSubview(contentView)
-        NSLayoutConstraint.activate([contentView.topAnchor.constraint(equalTo: scrollView.topAnchor), contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor), contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-                                     contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)])
+        crossButton.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
         view.addSubview(scrollView)
-        NSLayoutConstraint.activate([scrollView.topAnchor.constraint(equalTo: view.topAnchor), scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor), scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                     scrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
-        
+        scrollView.addSubview(contentView)
         contentView.addSubview(crossButton)
-        NSLayoutConstraint.activate([crossButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25), crossButton.heightAnchor.constraint(equalToConstant: 40), crossButton.widthAnchor.constraint(equalToConstant: 40), crossButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30)])
-        
         contentView.addSubview(titleView)
-        NSLayoutConstraint.activate([titleView.topAnchor.constraint(equalTo: crossButton.bottomAnchor, constant: 30), titleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), titleView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), titleView.heightAnchor.constraint(equalTo: titleView.widthAnchor, multiplier: 104/75)])
-        
         contentView.addSubview(line)
-        NSLayoutConstraint.activate([line.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 100), line.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), line.heightAnchor.constraint(equalToConstant: 1), line.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 40)])
+        
+        NSLayoutConstraint.activate([
+          contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+          contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+          contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+                                        
+          scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+          scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+          scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+          scrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                                        
+          crossButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
+          crossButton.heightAnchor.constraint(equalToConstant: 40),
+          crossButton.widthAnchor.constraint(equalToConstant: 40),
+          crossButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
+            
+          titleView.topAnchor.constraint(equalTo: crossButton.bottomAnchor, constant: 30),
+          titleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+          titleView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+          titleView.heightAnchor.constraint(equalTo: titleView.widthAnchor, multiplier: 104/75),
+          line.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 100),
+          line.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+          line.heightAnchor.constraint(equalToConstant: 1),
+          line.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 40)
+        ])
+        
         
     }
     
     func setupGallery(){
-        switch contentType {
-        case let .gallery(gallery):
+        if gallery != nil {
+            
             titleView.imageView.image = gallery.coverImage
             titleView.titleLabel.text = gallery.title
             titleView.type = "Gallery"
@@ -93,24 +126,39 @@ class ModalViewController: UIViewController {
             stackView.distribution = .fillEqually
             stackView.alignment = .fill
             contentView.addSubview(stackView)
-            NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40), stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), stackView.heightAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: (1.36 * CGFloat(imageViews.count)), constant: CGFloat((imageViews.count - 1) * 20))])
-            
-            
-            
-        default:
-            break
+            NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40), stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), stackView.heightAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: (1.36 * CGFloat(imageViews.count)), constant: CGFloat((imageViews.count - 1) * 20)), stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)])
         }
     }
     
     func setupStory(){
-        
+        if story != nil {
+            
+            titleView.imageView.image = story.coverImage
+            titleView.titleLabel.text = story.title
+            titleView.type = "Story"
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            self.collectionView = collectionView
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.register(StoryCollectionViewCell.self, forCellWithReuseIdentifier: "StoryCell")
+            contentView.addSubview(collectionView)
+            NSLayoutConstraint.activate([collectionView.leadingAnchor .constraint(equalTo: contentView.leadingAnchor), collectionView.widthAnchor.constraint(equalTo: view.widthAnchor), collectionView.heightAnchor.constraint(equalToConstant: 100), collectionView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40)])
+            let textFrame = TextFrame()
+            textFrame.textLabel.text = story.text
+            contentView.addSubview(textFrame)
+            textFrame.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([textFrame.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 40), textFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), textFrame.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), textFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)])
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError()
     }
     
-    @objc func dismiss(){
+    @objc func dismissModal(){
         dismiss(animated: true, completion: nil)
     }
     
@@ -118,4 +166,38 @@ class ModalViewController: UIViewController {
         
     }
     
+}
+
+extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return story.paths.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCell", for: indexPath) as! StoryCollectionViewCell
+        cell.tintColor = color
+        cell.path = story.paths[indexPath.item]
+        return cell
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if shouldAnimate {
+            (cell as! StoryCollectionViewCell).startAnimation()
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if shouldAnimate {
+            (cell as! StoryCollectionViewCell).stopAnimation()
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 74, height: 61)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 18, left: 50, bottom: 18, right: 50)
+    }
+
+
 }

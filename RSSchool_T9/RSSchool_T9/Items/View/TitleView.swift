@@ -16,13 +16,15 @@ class TitleView: UIView {
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.cornerRadius = 8
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     let titleLabel: UILabel  = {
         let label =  UILabel()
         label.font = UIFont(name: "Rockwell", size: 48)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -30,7 +32,6 @@ class TitleView: UIView {
     var type: String = "" {
         willSet{
             descriptionLabel.text = newValue
-            descriptionWidthConstraint.constant = descriptionLabel.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).width
         }
     }
     private let descriptionLabel: UILabel = {
@@ -43,6 +44,7 @@ class TitleView: UIView {
     private let descriptionView: UIView = {
         let view = UIView()
         view.layer.borderColor = UIColor.white.cgColor
+        view.backgroundColor = .black
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 8
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +61,6 @@ class TitleView: UIView {
         return gradientLayer
     }()
     
-    private var descriptionWidthConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,7 +79,7 @@ class TitleView: UIView {
         imageView.addSubview(titleLabel)
         descriptionView.addSubview(descriptionLabel)
         addSubview(descriptionView)
-        descriptionWidthConstraint = descriptionView.widthAnchor.constraint(equalToConstant: 60)
+       
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -86,7 +87,7 @@ class TitleView: UIView {
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
             descriptionView.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            descriptionView.heightAnchor.constraint(equalToConstant: 40), descriptionWidthConstraint,
+            descriptionView.heightAnchor.constraint(equalToConstant: 40),
             descriptionLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 8),
             descriptionLabel.centerXAnchor.constraint(equalTo: descriptionView.centerXAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 30),

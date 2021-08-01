@@ -38,21 +38,24 @@ class StoryCollectionViewCell: UICollectionViewCell {
         commonInit()
     }
     func startAnimation(){
+        shapeLayer.removeAnimation(forKey: "line")
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = 3
         animation.autoreverses = false
-        layer.add(animation, forKey: "line")
+        shapeLayer.add(animation, forKey: "line")
     }
     func stopAnimation(){
-        layer.removeAnimation(forKey: "line")
+        shapeLayer.removeAnimation(forKey: "line")
     }
     func commonInit(){
         layer.addSublayer(shapeLayer)
+        shapeLayer.strokeEnd = 1
         
     }
     override func layoutSubviews() {
+        super.layoutSubviews()
         shapeLayer.frame = contentView.bounds
     }
 }

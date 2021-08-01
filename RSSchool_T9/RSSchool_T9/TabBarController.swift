@@ -19,12 +19,22 @@ class TabBarController: UITabBarController {
         
         itemsVC.tabBarItem.title = "Items"
         itemsVC.tabBarItem.image = UIImage("menu")
+
+        let settingsVC = SettingsViewController()
         
-        let settingsVC = UINavigationController(rootViewController: SettingsViewController())
-        settingsVC.tabBarItem.title = "Settings"
-        settingsVC.tabBarItem.image = UIImage("gear")
+        settingsVC.colorSetter = { [weak itemsVC] color in
+            itemsVC?.color = color
+        }
+        settingsVC.shouldAnimateSetter = {
+            [weak itemsVC] shouldAnimate in
+            itemsVC?.shouldAnimate = shouldAnimate
+        }
+        let settingsNav = UINavigationController(rootViewController: settingsVC)
+        settingsNav.tabBarItem.title = "Settings"
+        settingsNav.tabBarItem.image = UIImage("gear")
         
-        viewControllers = [itemsVC, settingsVC]
+        
+        viewControllers = [itemsVC, settingsNav]
     }
     
 

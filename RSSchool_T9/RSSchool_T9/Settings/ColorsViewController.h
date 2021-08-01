@@ -12,7 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ColorsViewController : UIViewController
-
+@property (nonatomic, copy, nullable) void (^colorSetter)(UIColor*, NSString*);
+- (void)setColor:(NSString*) color;
 @end
 
 NS_ASSUME_NONNULL_END

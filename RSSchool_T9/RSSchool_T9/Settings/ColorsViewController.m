@@ -17,27 +17,19 @@
 @end
 
 @implementation ColorsViewController
-
+- (void)setColor:(NSString*) color{
+    for (NSInteger i = 0; i < self.colors.count; i++){
+        if ([color isEqualToString:_texts[i]]){
+            _selectedColor = i;
+            break;
+        }
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:244.0/255.0 alpha:1.0];
     
-    self.texts = @[@"#be2813", @"#3802da", @"#467c24", @"#808080", @"#8e5af7", @"#f07f5a", @"#f3af22", @"#3dacf7", @"#e87aa4", @"#0f2e3f", @"#213711", @"#511307", @"#92003b"];
-    self.colors = @[
-        [UIColor colorWithRed:190.0/255.0 green:40.0/255.0 blue:19.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:56.0/255.0 green:2.0/255.0 blue:218.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:70.0/255.0 green:124.0/255.0 blue:36.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:142.0/255.0 green:90.0/255.0 blue:247.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:240.0/255.0 green:127.0/255.0 blue:90.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:243.0/255.0 green:175.0/255.0 blue:34.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:61.0/255.0 green:172.0/255.0 blue:247.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:232.0/255.0 green:122.0/255.0 blue:164.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:15.0/255.0 green:46.0/255.0 blue:63.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:33.0/255.0 green:55.0/255.0 blue:17.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:81.0/255.0 green:19.0/255.0 blue:7.0/255.0 alpha:1.0],
-        [UIColor colorWithRed:146.0/255.0 green:0.0 blue:59.0/255.0 alpha:1.0],
-    ];
+
     
     UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
     tableView.delegate = self;
@@ -49,6 +41,29 @@
     [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"ColorCell"];
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.texts = @[@"#be2813", @"#3802da", @"#467c24", @"#808080", @"#8e5af7", @"#f07f5a", @"#f3af22", @"#3dacf7", @"#e87aa4", @"#0f2e3f", @"#213711", @"#511307", @"#92003b"];
+        self.colors = @[
+            [UIColor colorWithRed:190.0/255.0 green:40.0/255.0 blue:19.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:56.0/255.0 green:2.0/255.0 blue:218.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:70.0/255.0 green:124.0/255.0 blue:36.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:142.0/255.0 green:90.0/255.0 blue:247.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:240.0/255.0 green:127.0/255.0 blue:90.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:243.0/255.0 green:175.0/255.0 blue:34.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:61.0/255.0 green:172.0/255.0 blue:247.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:232.0/255.0 green:122.0/255.0 blue:164.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:15.0/255.0 green:46.0/255.0 blue:63.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:33.0/255.0 green:55.0/255.0 blue:17.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:81.0/255.0 green:19.0/255.0 blue:7.0/255.0 alpha:1.0],
+            [UIColor colorWithRed:146.0/255.0 green:0.0 blue:59.0/255.0 alpha:1.0],
+        ];
+    }
+    return self;
+}
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"ColorCell"];
@@ -74,6 +89,7 @@
     self.selectedColor = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [tableView reloadData];
+    self.colorSetter(self.colors[indexPath.row], self.texts[indexPath.row]);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

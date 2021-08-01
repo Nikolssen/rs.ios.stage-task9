@@ -31,8 +31,8 @@
     [self.view addSubview:tableView];
     tableView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:0.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:0], [tableView.centerXAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.centerXAnchor], [tableView.centerYAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.centerYAnchor]]];
-    self.color = UIColor.redColor;
-    self.colorDescription = @"#555";
+    self.color = [UIColor colorWithRed:0.953 green:0.686 blue:0.133 alpha:1];
+    self.colorDescription = @"#f3af22";
 }
 
 
@@ -69,6 +69,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row){
         ColorsViewController* colorsVC = [ColorsViewController new];
+        [colorsVC setColor:self.colorDescription];
+        __weak typeof(self) weakSelf = self;
+        colorsVC.colorSetter = ^void(UIColor* color, NSString* string) {
+            weakSelf.colorSetter(color);
+            weakSelf.color = color;
+            weakSelf.colorDescription = string;
+            [weakSelf.tableView reloadData];
+        };
         [self.navigationController pushViewController:colorsVC animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -76,6 +84,7 @@
 
 - (void) switchToggle:(UISwitch*) sender{
     self.shouldDrawStories = sender.isOn;
+    self.shouldAnimateSetter(sender.isOn);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;

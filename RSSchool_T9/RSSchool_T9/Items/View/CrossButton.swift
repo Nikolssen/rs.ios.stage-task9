@@ -11,33 +11,27 @@ import UIKit
 
 class CrossButton: UIButton {
 
-    override var buttonType: UIButton.ButtonType {
-        get{
-            .custom
-        }
-    }
+    override var buttonType: UIButton.ButtonType { get{ .custom  }  }
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
-    override func awakeFromNib() {
-        commonInit()
-    }
-    
     func commonInit(){
-        imageView?.image = UIImage("cross")
+        setImage(UIImage("cross").withTintColor(.white), for: .normal)
+        setImage(UIImage("cross").withTintColor(UIColor(red: 0.475, green: 0.475, blue: 0.475, alpha: 1)), for: .highlighted)
         imageView?.tintColor = .white
-        imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layer.borderWidth = 1
         layer.borderColor = UIColor.white.cgColor
+        imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        commonInit()
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = frame.height / 2
     }
+
 }

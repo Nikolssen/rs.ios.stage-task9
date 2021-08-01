@@ -11,6 +11,8 @@ import UIKit
 
 class ItemsViewController: UIViewController {
 
+    var shouldAnimate: Bool = true
+    var color: UIColor = UIColor(red: 0.953, green: 0.686, blue: 0.133, alpha: 1)
     var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,8 +72,9 @@ extension ItemsViewController: UICollectionViewDataSource{
 
 extension ItemsViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let modalVC = ModalViewController(type: FillingData.data[indexPath.item])
-        modalVC.modalPresentationStyle = .custom
+        let modalVC = ModalViewController(type: FillingData.data[indexPath.item], color: color, shouldAnimate: shouldAnimate)
+
+        modalVC.modalPresentationStyle = .fullScreen
         present(modalVC, animated: true, completion: nil)
     }
 }

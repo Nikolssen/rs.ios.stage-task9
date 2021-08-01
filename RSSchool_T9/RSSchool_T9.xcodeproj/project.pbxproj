@@ -34,6 +34,7 @@
 		84BCA09F26B5F14C000535C0 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCA09E26B5F14C000535C0 /* ModalViewController.swift */; };
 		84C5526A26B5387A00CB15C8 /* TextFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5526926B5387A00CB15C8 /* TextFrame.swift */; };
 		84FB6D2026B6907B00AD09E4 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */; };
+		84FB6D2326B6CFF000AD09E4 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB6D2226B6CFF000AD09E4 /* StoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		84BCA09E26B5F14C000535C0 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		84C5526926B5387A00CB15C8 /* TextFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFrame.swift; sourceTree = "<group>"; };
 		84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
+		84FB6D2226B6CFF000AD09E4 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,13 +175,10 @@
 		3F8916EF26B2F4C500DFA807 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				840ACF0B26B6E1BC00B52715 /* Cell */,
+				840ACF0A26B6E1A700B52715 /* View */,
 				841359ED26B305E500A129FA /* ItemsViewController.swift */,
-				3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */,
-				842ACD3D26B4A7FE001D82C6 /* TitleView.swift */,
-				842ACD4026B4A876001D82C6 /* FrameView.swift */,
-				84C5526926B5387A00CB15C8 /* TextFrame.swift */,
 				84BCA09E26B5F14C000535C0 /* ModalViewController.swift */,
-				84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -206,6 +205,26 @@
 				2BB9E76926AB605900112651 /* Info.plist */,
 			);
 			path = "Helping Files";
+			sourceTree = "<group>";
+		};
+		840ACF0A26B6E1A700B52715 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				842ACD3D26B4A7FE001D82C6 /* TitleView.swift */,
+				84C5526926B5387A00CB15C8 /* TextFrame.swift */,
+				84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */,
+				842ACD4026B4A876001D82C6 /* FrameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		840ACF0B26B6E1BC00B52715 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */,
+				84FB6D2226B6CFF000AD09E4 /* StoryCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +319,7 @@
 				2BB9F29126ADFAF100F43852 /* Data.swift in Sources */,
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				841359F526B31BD700A129FA /* SettingsViewController.m in Sources */,
+				84FB6D2326B6CFF000AD09E4 /* StoryCollectionViewCell.swift in Sources */,
 				2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */,
 				842ACD3E26B4A7FE001D82C6 /* TitleView.swift in Sources */,
 				842ACD4126B4A876001D82C6 /* FrameView.swift in Sources */,
