@@ -25,13 +25,12 @@
     UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
     self.tableView = tableView;
     tableView.scrollEnabled = NO;
-    tableView.layer.cornerRadius = 16.0;
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"SettingsCell"];
     [self.view addSubview:tableView];
     tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:00.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:0], [tableView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor], [tableView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor]]];
+    [NSLayoutConstraint activateConstraints:@[[tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:0.0], [tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:0], [tableView.centerXAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.centerXAnchor], [tableView.centerYAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.centerYAnchor]]];
     self.color = UIColor.redColor;
     self.colorDescription = @"#555";
 }

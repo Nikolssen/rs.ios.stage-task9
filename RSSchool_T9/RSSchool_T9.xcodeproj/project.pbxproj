@@ -29,6 +29,11 @@
 		841359EE26B305E500A129FA /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359ED26B305E500A129FA /* ItemsViewController.swift */; };
 		841359F126B3164800A129FA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359F026B3164800A129FA /* TabBarController.swift */; };
 		841359F526B31BD700A129FA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841359F426B31BD700A129FA /* SettingsViewController.m */; };
+		842ACD3E26B4A7FE001D82C6 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ACD3D26B4A7FE001D82C6 /* TitleView.swift */; };
+		842ACD4126B4A876001D82C6 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ACD4026B4A876001D82C6 /* FrameView.swift */; };
+		84BCA09F26B5F14C000535C0 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCA09E26B5F14C000535C0 /* ModalViewController.swift */; };
+		84C5526A26B5387A00CB15C8 /* TextFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5526926B5387A00CB15C8 /* TextFrame.swift */; };
+		84FB6D2026B6907B00AD09E4 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +64,11 @@
 		841359F026B3164800A129FA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		841359F326B31BD700A129FA /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		841359F426B31BD700A129FA /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		842ACD3D26B4A7FE001D82C6 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		842ACD4026B4A876001D82C6 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		84BCA09E26B5F14C000535C0 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		84C5526926B5387A00CB15C8 /* TextFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFrame.swift; sourceTree = "<group>"; };
+		84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +175,11 @@
 			children = (
 				841359ED26B305E500A129FA /* ItemsViewController.swift */,
 				3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */,
+				842ACD3D26B4A7FE001D82C6 /* TitleView.swift */,
+				842ACD4026B4A876001D82C6 /* FrameView.swift */,
+				84C5526926B5387A00CB15C8 /* TextFrame.swift */,
+				84BCA09E26B5F14C000535C0 /* ModalViewController.swift */,
+				84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -273,8 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BCA09F26B5F14C000535C0 /* ModalViewController.swift in Sources */,
 				2BB9F30126AF557E00F43852 /* story-2-path.swift in Sources */,
 				2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */,
+				84C5526A26B5387A00CB15C8 /* TextFrame.swift in Sources */,
 				3FB7F36626B42D5F004CE1C6 /* CollectionViewCell.swift in Sources */,
 				2BB9F30B26AF5EEC00F43852 /* story-3-path.swift in Sources */,
 				841359F126B3164800A129FA /* TabBarController.swift in Sources */,
@@ -284,6 +301,9 @@
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				841359F526B31BD700A129FA /* SettingsViewController.m in Sources */,
 				2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */,
+				842ACD3E26B4A7FE001D82C6 /* TitleView.swift in Sources */,
+				842ACD4126B4A876001D82C6 /* FrameView.swift in Sources */,
+				84FB6D2026B6907B00AD09E4 /* CrossButton.swift in Sources */,
 				2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +445,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9G6V47L895;
 				INFOPLIST_FILE = "RSSchool_T9/Helping Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,6 +468,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9G6V47L895;
 				INFOPLIST_FILE = "RSSchool_T9/Helping Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

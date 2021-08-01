@@ -28,6 +28,9 @@ class ItemsViewController: UIViewController {
 
         NSLayoutConstraint.activate([ collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0), collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor), collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0), collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor) ])
     }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
     
 }
 
@@ -37,8 +40,10 @@ extension ItemsViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 220)
+        let width = (view.frame.width - 65) / 2
+        return CGSize(width: width, height: width*11/9)
     }
+
 }
 
 extension ItemsViewController: UICollectionViewDataSource{
@@ -48,14 +53,25 @@ extension ItemsViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.imageView.image = UIImage("tesla-0")
-        cell.topLabel.text = "tesla"
-        cell.bottomLabel.text = "Story"
+        switch FillingData.data[indexPath.item] {
+        case .story(let story):
+            cell.imageView.image = story.coverImage
+            cell.bottomLabel.text = "Story"
+            cell.topLabel.text = story.title
+        case .gallery(let gallery):
+            cell.imageView.image = gallery.coverImage
+            cell.bottomLabel.text = "Gallery"
+            cell.topLabel.text = gallery.title
+        }
         return cell
     }
     
 }
 
 extension ItemsViewController: UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let modalVC = ModalViewController(type: FillingData.data[indexPath.item])
+        modalVC.modalPresentationStyle = .custom
+        present(modalVC, animated: true, completion: nil)
+    }
 }
