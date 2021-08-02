@@ -26,12 +26,10 @@ class ModalViewController: UIViewController {
     private var collectionView: UICollectionView?
     let gallery: Gallery!
     let story: Story!
-    var stv: UIStackView!
     let titleView = TitleView()
     let crossButton = CrossButton(frame: .zero)
     let color: UIColor
     let shouldAnimate: Bool
-    var tf : TextFrame?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -47,8 +45,6 @@ class ModalViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         print(contentView.frame)
         print(scrollView.bounds)
-        print(tf?.frame)
-        print(stv?.frame)
         scrollView.contentSize = contentView.frame.size
     }
     
@@ -67,7 +63,6 @@ class ModalViewController: UIViewController {
     }
     
     func commonInit(){
-        scrollView.backgroundColor = .blue
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         titleView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +80,7 @@ class ModalViewController: UIViewController {
         NSLayoutConstraint.activate([
           contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
           contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-          contentView.widthAnchor.constraint(equalTo: view.widthAnchor),
+          contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
           scrollView.topAnchor.constraint(equalTo: view.topAnchor),
           scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
           scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -129,7 +124,6 @@ class ModalViewController: UIViewController {
             stackView.spacing = 20
             stackView.distribution = .fillEqually
             stackView.alignment = .fill
-            stv = stackView
             contentView.addSubview(stackView)
             NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40), stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), stackView.heightAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: (1.36 * CGFloat(imageViews.count)), constant: CGFloat((imageViews.count - 1) * 20)), stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)])
         }
@@ -160,7 +154,6 @@ class ModalViewController: UIViewController {
             textFrame.textLabel.text = story.text
             contentView.addSubview(textFrame)
             textFrame.translatesAutoresizingMaskIntoConstraints = false
-            tf = textFrame
             NSLayoutConstraint.activate([textFrame.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 40), textFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), textFrame.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), textFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)])
         }
     }
@@ -173,8 +166,16 @@ class ModalViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func showImage(){
-        
+    @objc func showImage(_ recognizer: UITapGestureRecognizer){
+        if let imageView = recognizer.view as? FrameView{
+            let imageVC = ImageViewController()
+
+            imageVC.modalPresentationStyle = .fullScreen
+            present(imageVC, animated: true, completion: nil)
+            imageVC.imageScrollView.setImage( image: imageView.imageView.image!)
+            print(imageView.imageView.image!.size)
+            imageVC.view.backgroundColor = .black
+        }
     }
     
 }
