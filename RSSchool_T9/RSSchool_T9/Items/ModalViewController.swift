@@ -26,12 +26,12 @@ class ModalViewController: UIViewController {
     private var collectionView: UICollectionView?
     let gallery: Gallery!
     let story: Story!
-
+    var stv: UIStackView!
     let titleView = TitleView()
     let crossButton = CrossButton(frame: .zero)
     let color: UIColor
     let shouldAnimate: Bool
-    
+    var tf : TextFrame?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -46,6 +46,9 @@ class ModalViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         print(contentView.frame)
+        print(scrollView.bounds)
+        print(tf?.frame)
+        print(stv?.frame)
         scrollView.contentSize = contentView.frame.size
     }
     
@@ -64,6 +67,7 @@ class ModalViewController: UIViewController {
     }
     
     func commonInit(){
+        scrollView.backgroundColor = .blue
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         titleView.translatesAutoresizingMaskIntoConstraints = false
@@ -77,11 +81,11 @@ class ModalViewController: UIViewController {
         contentView.addSubview(titleView)
         contentView.addSubview(line)
         
+        
         NSLayoutConstraint.activate([
           contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-          contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-          contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-                                        
+          contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+          contentView.widthAnchor.constraint(equalTo: view.widthAnchor),
           scrollView.topAnchor.constraint(equalTo: view.topAnchor),
           scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
           scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -125,6 +129,7 @@ class ModalViewController: UIViewController {
             stackView.spacing = 20
             stackView.distribution = .fillEqually
             stackView.alignment = .fill
+            stv = stackView
             contentView.addSubview(stackView)
             NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40), stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), stackView.heightAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: (1.36 * CGFloat(imageViews.count)), constant: CGFloat((imageViews.count - 1) * 20)), stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)])
         }
@@ -136,20 +141,26 @@ class ModalViewController: UIViewController {
             titleView.imageView.image = story.coverImage
             titleView.titleLabel.text = story.title
             titleView.type = "Story"
+            
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
+            
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
             collectionView.delegate = self
             collectionView.dataSource = self
             self.collectionView = collectionView
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             collectionView.register(StoryCollectionViewCell.self, forCellWithReuseIdentifier: "StoryCell")
+            
             contentView.addSubview(collectionView)
+            
             NSLayoutConstraint.activate([collectionView.leadingAnchor .constraint(equalTo: contentView.leadingAnchor), collectionView.widthAnchor.constraint(equalTo: view.widthAnchor), collectionView.heightAnchor.constraint(equalToConstant: 100), collectionView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40)])
             let textFrame = TextFrame()
+            
             textFrame.textLabel.text = story.text
             contentView.addSubview(textFrame)
             textFrame.translatesAutoresizingMaskIntoConstraints = false
+            tf = textFrame
             NSLayoutConstraint.activate([textFrame.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 40), textFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), textFrame.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), textFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)])
         }
     }
@@ -170,9 +181,13 @@ class ModalViewController: UIViewController {
 
 extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return story.paths.count
+        return story.paths.count 
     }
 
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return Int(story.paths.count / 2)
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCell", for: indexPath) as! StoryCollectionViewCell
         cell.tintColor = color

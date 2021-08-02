@@ -74,7 +74,7 @@ extension ItemsViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let modalVC = ModalViewController(type: FillingData.data[indexPath.item], color: color, shouldAnimate: shouldAnimate)
 
-        modalVC.modalPresentationStyle = .fullScreen
+        modalVC.modalPresentationStyle = .custom
         present(modalVC, animated: true, completion: nil)
     }
 }
