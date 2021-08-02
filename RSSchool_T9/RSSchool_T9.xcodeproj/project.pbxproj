@@ -26,6 +26,8 @@
 		2BB9F31226AF5FBE00F43852 /* s4-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9F31126AF5FBE00F43852 /* s4-title.txt */; };
 		3F8916E726B2A07D00DFA807 /* ColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8916E626B2A07D00DFA807 /* ColorsViewController.m */; };
 		3FB7F36626B42D5F004CE1C6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */; };
+		3FDDA96426B822A200B3B453 /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FDDA96226B822A200B3B453 /* s5-title.txt */; };
+		3FDDA96526B822A200B3B453 /* s5-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FDDA96326B822A200B3B453 /* s5-text.txt */; };
 		841359EE26B305E500A129FA /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359ED26B305E500A129FA /* ItemsViewController.swift */; };
 		841359F126B3164800A129FA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359F026B3164800A129FA /* TabBarController.swift */; };
 		841359F526B31BD700A129FA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841359F426B31BD700A129FA /* SettingsViewController.m */; };
@@ -61,6 +63,8 @@
 		3F8916E526B2A07D00DFA807 /* ColorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ColorsViewController.h; path = RSSchool_T9/Settings/ColorsViewController.h; sourceTree = SOURCE_ROOT; };
 		3F8916E626B2A07D00DFA807 /* ColorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ColorsViewController.m; path = RSSchool_T9/Settings/ColorsViewController.m; sourceTree = SOURCE_ROOT; };
 		3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		3FDDA96226B822A200B3B453 /* s5-title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s5-title.txt"; sourceTree = "<group>"; };
+		3FDDA96326B822A200B3B453 /* s5-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s5-text.txt"; sourceTree = "<group>"; };
 		841359ED26B305E500A129FA /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		841359F026B3164800A129FA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		841359F326B31BD700A129FA /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 		2BB9F29226AE017D00F43852 /* Static */ = {
 			isa = PBXGroup;
 			children = (
+				3FDDA96626B8231C00B3B453 /* story-6 */,
+				3FDDA96126B821B900B3B453 /* story-5 */,
 				2BB9F30C26AF5F9C00F43852 /* story-4 */,
 				2BB9F30326AF5D7E00F43852 /* story-3 */,
 				2BB9F2FC26AF554C00F43852 /* story-2 */,
@@ -205,6 +211,22 @@
 				2BB9E76926AB605900112651 /* Info.plist */,
 			);
 			path = "Helping Files";
+			sourceTree = "<group>";
+		};
+		3FDDA96126B821B900B3B453 /* story-5 */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDA96326B822A200B3B453 /* s5-text.txt */,
+				3FDDA96226B822A200B3B453 /* s5-title.txt */,
+			);
+			path = "story-5";
+			sourceTree = "<group>";
+		};
+		3FDDA96626B8231C00B3B453 /* story-6 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "story-6";
 			sourceTree = "<group>";
 		};
 		840ACF0A26B6E1A700B52715 /* View */ = {
@@ -297,6 +319,8 @@
 				2BB9E76526AB605900112651 /* Assets.xcassets in Resources */,
 				2BB9F30226AF57B500F43852 /* s2-text.txt in Resources */,
 				2BB9F29726AE01B800F43852 /* s1-text.txt in Resources */,
+				3FDDA96426B822A200B3B453 /* s5-title.txt in Resources */,
+				3FDDA96526B822A200B3B453 /* s5-text.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
