@@ -91,7 +91,7 @@ class TitleView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor, constant: 8),
             descriptionLabel.centerXAnchor.constraint(equalTo: descriptionView.centerXAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: descriptionView.leadingAnchor, constant: 30),
-            titleLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: 30),
+            titleLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 30),
             titleLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55)
         ])
