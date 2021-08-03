@@ -75,7 +75,7 @@ extension CGPath {
         bezier2Path.addCurve(to: CGPoint(x: 45.33, y: 24.28), controlPoint1: CGPoint(x: 45.73, y: 24.3), controlPoint2: CGPoint(x: 45.38, y: 24.27))
         bezier2Path.addCurve(to: CGPoint(x: 44.7, y: 24.34), controlPoint1: CGPoint(x: 45.27, y: 24.28), controlPoint2: CGPoint(x: 44.99, y: 24.31))
         bezier2Path.close()
-        
+
         bezierPath.append(bezier2Path)
 
         let bezier3Path = UIBezierPath()
@@ -93,7 +93,7 @@ extension CGPath {
         bezier3Path.addCurve(to: CGPoint(x: 32.1, y: 24.42), controlPoint1: CGPoint(x: 34.65, y: 24.34), controlPoint2: CGPoint(x: 32.64, y: 24.3))
         bezier3Path.close()
         bezierPath.append(bezier3Path)
-        
+
         let bezier4Path = UIBezierPath()
         bezier4Path.move(to: CGPoint(x: 38.75, y: 32.33))
         bezier4Path.addCurve(to: CGPoint(x: 37.65, y: 33.11), controlPoint1: CGPoint(x: 38.46, y: 32.44), controlPoint2: CGPoint(x: 37.95, y: 32.8))
@@ -127,7 +127,7 @@ extension CGPath {
         bezier5Path.addCurve(to: CGPoint(x: 38.87, y: 33.96), controlPoint1: CGPoint(x: 38.7, y: 34.21), controlPoint2: CGPoint(x: 38.71, y: 34.14))
         bezier5Path.addCurve(to: CGPoint(x: 39.95, y: 33.9), controlPoint1: CGPoint(x: 39.13, y: 33.65), controlPoint2: CGPoint(x: 39.66, y: 33.62))
         bezier5Path.close()
-        bezier5Path.fill()
+      
         bezierPath.append(bezier5Path)
 
 
@@ -150,7 +150,7 @@ extension CGPath {
         bezier6Path.addCurve(to: CGPoint(x: 39.6, y: 38.34), controlPoint1: CGPoint(x: 39.47, y: 38.09), controlPoint2: CGPoint(x: 39.55, y: 38.13))
         bezier6Path.close()
         bezierPath.append(bezier6Path)
-        bezier6Path.fill()
+ 
 
 
         //// Bezier 7 Drawing

@@ -153,7 +153,7 @@ class ModalViewController: UIViewController {
             
             contentView.addSubview(collectionView)
             
-            NSLayoutConstraint.activate([collectionView.leadingAnchor .constraint(equalTo: contentView.leadingAnchor), collectionView.widthAnchor.constraint(equalTo: view.widthAnchor), collectionView.heightAnchor.constraint(equalToConstant: 100), collectionView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40)])
+            NSLayoutConstraint.activate([collectionView.leadingAnchor .constraint(equalTo: contentView.leadingAnchor, constant: 20), collectionView.widthAnchor.constraint(equalTo: view.widthAnchor), collectionView.heightAnchor.constraint(equalToConstant: 100), collectionView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40)])
             let textFrame = TextFrame()
             
             textFrame.textLabel.text = story.text
@@ -172,13 +172,11 @@ class ModalViewController: UIViewController {
     }
     
     @objc func showImage(_ recognizer: UITapGestureRecognizer){
-        if let imageView = recognizer.view as? FrameView{
+        if let frameView = recognizer.view as? FrameView{
             let imageVC = ImageViewController()
-
             imageVC.modalPresentationStyle = .fullScreen
             present(imageVC, animated: true, completion: nil)
-            imageVC.imageScrollView.setImage(image: imageView.imageView.image!)
-            print(imageView.imageView.image!.size)
+            imageVC.imageView.image = frameView.imageView.image
             imageVC.view.backgroundColor = .black
         }
     }
@@ -217,7 +215,10 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 18, left: 50, bottom: 18, right: 50)
+        return UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 100
     }
 
 

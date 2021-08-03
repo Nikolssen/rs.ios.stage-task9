@@ -42,7 +42,7 @@ extension ItemsViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.frame.width - 65) / 2
+        let width = (view.safeAreaLayoutGuide.layoutFrame.width - 65) / 2
         return CGSize(width: width, height: width*11/9)
     }
 

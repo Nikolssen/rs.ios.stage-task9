@@ -35,7 +35,6 @@
 		842ACD3E26B4A7FE001D82C6 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ACD3D26B4A7FE001D82C6 /* TitleView.swift */; };
 		842ACD4126B4A876001D82C6 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ACD4026B4A876001D82C6 /* FrameView.swift */; };
 		849080D526B864F3001EAF21 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849080D426B864F3001EAF21 /* ImageViewController.swift */; };
-		849080D926B86673001EAF21 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849080D826B86673001EAF21 /* ImageScrollView.swift */; };
 		849080DC26B88A64001EAF21 /* s6-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 849080DB26B88A64001EAF21 /* s6-text.txt */; };
 		849080DF26B88BFA001EAF21 /* s6-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 849080DE26B88BFA001EAF21 /* s6-title.txt */; };
 		849080E226B890EF001EAF21 /* story-5-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849080E126B890EF001EAF21 /* story-5-path.swift */; };
@@ -79,7 +78,6 @@
 		842ACD3D26B4A7FE001D82C6 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		842ACD4026B4A876001D82C6 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		849080D426B864F3001EAF21 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = RSSchool_T9/Items/ImageViewController.swift; sourceTree = SOURCE_ROOT; };
-		849080D826B86673001EAF21 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		849080DB26B88A64001EAF21 /* s6-text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "s6-text.txt"; path = "RSSchool_T9/Items/View/s6-text.txt"; sourceTree = SOURCE_ROOT; };
 		849080DE26B88BFA001EAF21 /* s6-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "s6-title.txt"; path = "RSSchool_T9/Items/View/s6-title.txt"; sourceTree = SOURCE_ROOT; };
 		849080E126B890EF001EAF21 /* story-5-path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "story-5-path.swift"; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 				84C5526926B5387A00CB15C8 /* TextFrame.swift */,
 				84FB6D1F26B6907B00AD09E4 /* CrossButton.swift */,
 				842ACD4026B4A876001D82C6 /* FrameView.swift */,
-				849080D826B86673001EAF21 /* ImageScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,7 +366,6 @@
 				842ACD4126B4A876001D82C6 /* FrameView.swift in Sources */,
 				849080D526B864F3001EAF21 /* ImageViewController.swift in Sources */,
 				3FEA201226B934A300C70C29 /* story-6-path.swift in Sources */,
-				849080D926B86673001EAF21 /* ImageScrollView.swift in Sources */,
 				84FB6D2026B6907B00AD09E4 /* CrossButton.swift in Sources */,
 				849080E226B890EF001EAF21 /* story-5-path.swift in Sources */,
 				2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */,
@@ -520,7 +516,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikolssen.RSSchool-T9";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ivan.budovich.RSSchool-T9";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RSSchool_T9/Helping Files/RSSchool_T9-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -543,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nikolssen.RSSchool-T9";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ivan.budovich.RSSchool-T9";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RSSchool_T9/Helping Files/RSSchool_T9-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
