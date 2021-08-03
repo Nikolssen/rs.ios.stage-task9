@@ -80,6 +80,8 @@ class ModalViewController: UIViewController {
         NSLayoutConstraint.activate([
           contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
           contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+          contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+          contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
           contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
           scrollView.topAnchor.constraint(equalTo: view.topAnchor),
           scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -208,7 +210,7 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 74, height: 61)
+        return CGSize(width: 75, height: 75)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
