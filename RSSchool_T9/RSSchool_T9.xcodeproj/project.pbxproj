@@ -26,9 +26,9 @@
 		2BB9F31226AF5FBE00F43852 /* s4-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9F31126AF5FBE00F43852 /* s4-title.txt */; };
 		3F8916E726B2A07D00DFA807 /* ColorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8916E626B2A07D00DFA807 /* ColorsViewController.m */; };
 		3FB7F36626B42D5F004CE1C6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */; };
-		3FDDA96426B822A200B3B453 /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FDDA96226B822A200B3B453 /* s5-title.txt */; };
 		3FDDA96526B822A200B3B453 /* s5-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FDDA96326B822A200B3B453 /* s5-text.txt */; };
 		3FEA201226B934A300C70C29 /* story-6-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA201126B934A300C70C29 /* story-6-path.swift */; };
+		3FF62E0426B98791007C0D25 /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3FF62E0326B98791007C0D25 /* s5-title.txt */; };
 		841359EE26B305E500A129FA /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359ED26B305E500A129FA /* ItemsViewController.swift */; };
 		841359F126B3164800A129FA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841359F026B3164800A129FA /* TabBarController.swift */; };
 		841359F526B31BD700A129FA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841359F426B31BD700A129FA /* SettingsViewController.m */; };
@@ -69,9 +69,9 @@
 		3F8916E526B2A07D00DFA807 /* ColorsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ColorsViewController.h; path = RSSchool_T9/Settings/ColorsViewController.h; sourceTree = SOURCE_ROOT; };
 		3F8916E626B2A07D00DFA807 /* ColorsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ColorsViewController.m; path = RSSchool_T9/Settings/ColorsViewController.m; sourceTree = SOURCE_ROOT; };
 		3FB7F36526B42D5F004CE1C6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		3FDDA96226B822A200B3B453 /* s5-title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s5-title.txt"; sourceTree = "<group>"; };
 		3FDDA96326B822A200B3B453 /* s5-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s5-text.txt"; sourceTree = "<group>"; };
 		3FEA201126B934A300C70C29 /* story-6-path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "story-6-path.swift"; sourceTree = "<group>"; };
+		3FF62E0326B98791007C0D25 /* s5-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s5-title.txt"; sourceTree = "<group>"; };
 		841359ED26B305E500A129FA /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		841359F026B3164800A129FA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		841359F326B31BD700A129FA /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				3FDDA96326B822A200B3B453 /* s5-text.txt */,
-				3FDDA96226B822A200B3B453 /* s5-title.txt */,
+				3FF62E0326B98791007C0D25 /* s5-title.txt */,
 				849080E126B890EF001EAF21 /* story-5-path.swift */,
 			);
 			path = "story-5";
@@ -328,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BB9E76826AB605900112651 /* LaunchScreen.storyboard in Resources */,
+				3FF62E0426B98791007C0D25 /* s5-title.txt in Resources */,
 				849080DC26B88A64001EAF21 /* s6-text.txt in Resources */,
 				2BB9F30726AF5D9D00F43852 /* s3-text.txt in Resources */,
 				2BB9F30926AF5DAF00F43852 /* s3-title.txt in Resources */,
@@ -338,7 +339,6 @@
 				2BB9E76526AB605900112651 /* Assets.xcassets in Resources */,
 				2BB9F30226AF57B500F43852 /* s2-text.txt in Resources */,
 				2BB9F29726AE01B800F43852 /* s1-text.txt in Resources */,
-				3FDDA96426B822A200B3B453 /* s5-title.txt in Resources */,
 				849080DF26B88BFA001EAF21 /* s6-title.txt in Resources */,
 				3FDDA96526B822A200B3B453 /* s5-text.txt in Resources */,
 			);

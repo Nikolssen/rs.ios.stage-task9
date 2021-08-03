@@ -73,6 +73,15 @@ extension CGPath {
         bezier38Path.addCurve(to: CGPoint(x: 54.181, y: 38.74), controlPoint1: CGPoint(x: 54.156, y: 39.757), controlPoint2: CGPoint(x: 54.143, y: 39.242))
         bezier38Path.addCurve(to: CGPoint(x: 54.573, y: 36.487), controlPoint1: CGPoint(x: 54.241, y: 37.987), controlPoint2: CGPoint(x: 54.404, y: 37.224))
         bezier38Path.close()
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 33.525, y: 30.004, width: 1, height: 1))
+        let oval2Path = UIBezierPath(ovalIn: CGRect(x: 41.96, y: 29.019, width: 1, height: 1))
+        let bezier5Path = UIBezierPath()
+        bezier5Path.move(to: CGPoint(x: 30.036, y: 33.586))
+        bezier5Path.addCurve(to: CGPoint(x: 36.16, y: 33.894), controlPoint1: CGPoint(x: 32.047, y: 33.938), controlPoint2: CGPoint(x: 34.124, y: 33.969))
+        bezier5Path.addCurve(to: CGPoint(x: 45.699, y: 32.813), controlPoint1: CGPoint(x: 39.32, y: 33.765), controlPoint2: CGPoint(x: 42.579, y: 33.334))
+        bezier38Path.append(ovalPath)
+        bezier38Path.append(oval2Path)
+        bezier38Path.append(bezier5Path)
         return bezier38Path.cgPath
     }()
 }
