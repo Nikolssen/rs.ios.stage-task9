@@ -27,12 +27,13 @@ class ImageScrollView: UIScrollView, UIScrollViewDelegate{
     func commontInit(){
         addSubview(zoomImageView)
         delegate = self
-
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
     }
+    
     func setImage(image: UIImage){
         zoomImageView.image = image
+        zoomImageView.contentMode = .scaleAspectFit
         setCurrentMaximumAndMinimumZoomScale()
     }
 
@@ -65,10 +66,11 @@ class ImageScrollView: UIScrollView, UIScrollViewDelegate{
         let minScale = min(xScale, yScale)
         self.minimumZoomScale = minScale
         self.maximumZoomScale = minScale * 3
+        print(minScale)
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentSize = zoomImageView.image?.size ?? .zero
+        self.contentSize = zoomImageView.bounds.size
         centerImage()
         setCurrentMaximumAndMinimumZoomScale()
     }

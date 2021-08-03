@@ -12,13 +12,18 @@ import UIKit
 class CrossButton: UIButton {
 
     override var buttonType: UIButton.ButtonType { get{ .custom  }  }
+    override var isHighlighted: Bool {
+        willSet{
+            imageView?.tintColor = newValue ? .gray : .white
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     func commonInit(){
-        setImage(UIImage("cross").withTintColor(.white), for: .normal)
-        setImage(UIImage("cross").withTintColor(UIColor(red: 0.475, green: 0.475, blue: 0.475, alpha: 1)), for: .highlighted)
+        setImage(UIImage("cross"), for: .normal)
+        setImage(UIImage("cross"), for: .highlighted)
         imageView?.tintColor = .white
         layer.borderWidth = 1
         layer.borderColor = UIColor.white.cgColor
@@ -33,5 +38,7 @@ class CrossButton: UIButton {
         super.layoutSubviews()
         layer.cornerRadius = frame.height / 2
     }
+    
+    
 
 }

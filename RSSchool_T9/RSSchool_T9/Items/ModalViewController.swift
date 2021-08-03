@@ -11,40 +11,43 @@ import UIKit
 
 class ModalViewController: UIViewController {
     
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
     }()
     
-    let line: UIView = {
+    private let line: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
     
     private let contentView = UIView()
+    
     private var collectionView: UICollectionView?
+    
+    let titleView = TitleView()
+    
+    let crossButton = CrossButton(frame: .zero)
+    
     let gallery: Gallery!
     let story: Story!
-    let titleView = TitleView()
-    let crossButton = CrossButton(frame: .zero)
+    
     let color: UIColor
     let shouldAnimate: Bool
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         commonInit()
-        
-        
-        
         setupGallery()
         setupStory()
-        
-        
+    
     }
+    
+    
     override func viewDidLayoutSubviews() {
-        print(contentView.frame)
-        print(scrollView.bounds)
         scrollView.contentSize = contentView.frame.size
     }
     
@@ -174,7 +177,7 @@ class ModalViewController: UIViewController {
 
             imageVC.modalPresentationStyle = .fullScreen
             present(imageVC, animated: true, completion: nil)
-            imageVC.imageScrollView.setImage( image: imageView.imageView.image!)
+            imageVC.imageScrollView.setImage(image: imageView.imageView.image!)
             print(imageView.imageView.image!.size)
             imageVC.view.backgroundColor = .black
         }
