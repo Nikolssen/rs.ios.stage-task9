@@ -334,8 +334,8 @@ extension CGPath {
 
 
 
-        //// POLYLINE_1306_
-        //// Bezier 15 Drawing
+        // POLYLINE_1306_
+        // Bezier 15 Drawing
         let bezier15Path = UIBezierPath()
         bezier15Path.move(to: CGPoint(x: 6.15, y: 1.73))
         bezier15Path.addCurve(to: CGPoint(x: 5.76, y: 1.96), controlPoint1: CGPoint(x: 6.01, y: 1.78), controlPoint2: CGPoint(x: 5.87, y: 1.85))
@@ -344,7 +344,7 @@ extension CGPath {
         bezier15Path.addCurve(to: CGPoint(x: 5.69, y: 4.95), controlPoint1: CGPoint(x: 5.4, y: 3.56), controlPoint2: CGPoint(x: 5.52, y: 4.27))
         bezier15Path.addCurve(to: CGPoint(x: 6.82, y: 8.17), controlPoint1: CGPoint(x: 5.99, y: 6.05), controlPoint2: CGPoint(x: 6.35, y: 7.15))
         bezier15Path.addCurve(to: CGPoint(x: 7.11, y: 8.64), controlPoint1: CGPoint(x: 6.9, y: 8.33), controlPoint2: CGPoint(x: 6.99, y: 8.52))
-        bezier4Path.append(bezier4Path)
+        bezier4Path.append(bezier15Path)
 
 
 
@@ -421,8 +421,8 @@ extension CGPath {
 
 
 
-        //// POLYLINE_1304_
-        //// Bezier 17 Drawing
+        // POLYLINE_1304_
+        // Bezier 17 Drawing
         let bezier17Path = UIBezierPath()
         bezier17Path.move(to: CGPoint(x: 22.81, y: 26.56))
         bezier17Path.addCurve(to: CGPoint(x: 23.82, y: 27.92), controlPoint1: CGPoint(x: 23.05, y: 27.12), controlPoint2: CGPoint(x: 23.37, y: 27.65))

@@ -195,9 +195,6 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return story.paths.count 
     }
 
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return Int(story.paths.count / 2)
-//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCell", for: indexPath) as! StoryCollectionViewCell
