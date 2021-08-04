@@ -55,15 +55,17 @@ extension ItemsViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.1
         switch FillingData.data[indexPath.item] {
         case .story(let story):
             cell.imageView.image = story.coverImage
-            cell.bottomLabel.text = "Story"
-            cell.topLabel.text = story.title
+            cell.bottomLabel.attributedText = NSMutableAttributedString(string: "Story", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+            cell.topLabel.attributedText = NSMutableAttributedString(string: story.title, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         case .gallery(let gallery):
             cell.imageView.image = gallery.coverImage
-            cell.bottomLabel.text = "Gallery"
-            cell.topLabel.text = gallery.title
+            cell.bottomLabel.attributedText = NSMutableAttributedString(string: "Gallery", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+            cell.topLabel.attributedText = NSMutableAttributedString(string: gallery.title, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         }
         return cell
     }

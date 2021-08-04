@@ -111,9 +111,10 @@ class ModalViewController: UIViewController {
     
     func setupGallery(){
         if gallery != nil {
-            
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.1
             titleView.imageView.image = gallery.coverImage
-            titleView.titleLabel.text = gallery.title
+            titleView.titleLabel.attributedText = NSMutableAttributedString(string: gallery.title, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
             titleView.type = "Gallery"
             
             let imageViews: [FrameView] = gallery.images.map{
@@ -136,9 +137,11 @@ class ModalViewController: UIViewController {
     
     func setupStory(){
         if story != nil {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.1
             
             titleView.imageView.image = story.coverImage
-            titleView.titleLabel.text = story.title
+            titleView.titleLabel.attributedText = NSMutableAttributedString(string: story.title, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
             titleView.type = "Story"
             
             let layout = UICollectionViewFlowLayout()
@@ -156,7 +159,11 @@ class ModalViewController: UIViewController {
             NSLayoutConstraint.activate([collectionView.leadingAnchor .constraint(equalTo: contentView.leadingAnchor, constant: 20), collectionView.widthAnchor.constraint(equalTo: view.widthAnchor), collectionView.heightAnchor.constraint(equalToConstant: 100), collectionView.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 40)])
             let textFrame = TextFrame()
             
-            textFrame.textLabel.text = story.text
+
+
+
+            textFrame.textLabel.attributedText = NSMutableAttributedString(string: story.text, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+            
             contentView.addSubview(textFrame)
             textFrame.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([textFrame.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 40), textFrame.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20), textFrame.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), textFrame.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)])

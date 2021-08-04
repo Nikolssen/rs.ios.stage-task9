@@ -31,12 +31,15 @@ class TitleView: UIView {
     }()
     var type: String = "" {
         willSet{
-            descriptionLabel.text = newValue
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.1
+            descriptionLabel.attributedText = NSMutableAttributedString(string: newValue, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         }
     }
     private let descriptionLabel: UILabel = {
         let label =  UILabel()
         label.font = UIFont(name: "Rockwell", size: 24)
+
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
